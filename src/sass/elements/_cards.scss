@@ -1,0 +1,526 @@
+.curse-cards
+{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: 8px;
+
+    &-card
+    {
+        position: relative;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: calc(100% - 8px);
+        height: 100px;
+        box-shadow: 8px 8px 0px #4A0987;
+        background: #7A0EE0;
+
+        h2
+        {
+            font-weight: bold;
+            font-size: 4.4em;
+            color: #fff;
+            padding-left: 40px;
+            margin: 0;
+            z-index: 1;
+        }
+        
+        span
+        {
+            font-weight: 800;
+            font-size: 5em;
+            line-height: 0.7;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: $warning;
+        }
+
+        &:not(:last-child)
+        {
+            margin-bottom: 25px;
+        }
+
+        @include mq('tablet-mid', max)
+        {
+            height: 70px;
+
+            h2
+            {
+                font-size: 3.2em;
+            }
+
+            span
+            {
+                font-size: 4em;
+            }
+        }
+
+        @include mq('tablet', max)
+        {
+            height: 60px;
+
+            h2
+            {
+                font-weight: 600;
+                font-size: 2.4em;
+            }
+
+            span
+            {
+                font-size: 2.4em;
+            }
+        }
+
+        @include mq('phablet', max)
+        {
+            h2
+            {
+                font-size: 2em;
+            }
+
+            span
+            {
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+.forcurse-cards
+{
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin-bottom: 20px;
+
+    &-card
+    {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        box-shadow: 8px 8px 0px #630CB4;
+        transition: all .4s ease;
+
+        .title
+        {
+            font-weight: 600;
+            font-size: 4em;
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            transition: all .4s ease;
+            color: #fff;
+        }
+
+        h2,
+        .drop
+        {
+            position: relative;
+            margin: 0;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .drop
+        {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            top: -100%;
+            left: 0;
+            padding: 30px;
+            padding-top: 20px;
+            transition: all .4s ease;
+            background: #fff;
+
+            h2
+            {
+                word-break: break-word;
+                font-weight: 600;
+                font-size: 4em;
+                color: $purple;
+            }
+
+            p
+            {
+                font-weight: 500;
+                font-size: 1.8em;
+                margin: 0;
+                @include textClamp(8);
+            }
+        }
+
+        img
+        {
+            position: absolute;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &:hover
+    {
+        .forcurse-cards-card
+        {
+            box-shadow: 8px 8px 0px $warning;
+        }
+
+        .title
+        {
+            bottom: -100%;
+            opacity: 0;
+        }
+
+        .drop
+        {
+            top: 0;
+        }
+    }
+
+    @include mq('desktop-small', max)
+    {
+        h2
+        {
+            font-size: 2.8em!important;
+        }
+
+        p
+        {
+            font-weight: 400!important;
+            font-size: 1.6em!important;
+        }
+    }
+    
+    @include mq('tablet-mid', max)
+    {
+        h2
+        {
+            font-size: 2.4em!important;
+        }
+    }
+
+    @include mq('tablet', max)
+    {
+        height: auto;
+
+        &-card
+        {
+            box-shadow: 8px 8px 0px $warning!important;
+
+            .drop
+            {
+                position: relative;
+                top: 0;
+
+                h2
+                {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+.card-flip
+{
+    position: relative;
+
+    .cards
+    {
+        height: 350px;
+        width: 100%;
+        box-shadow: 8px 8px 0px #630CB4;
+        transform-style: preserve-3d;
+        transition: .6s ease-in-out;
+    }
+
+    .front
+    {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        background: $purple;
+        background-blend-mode: overlay;
+    
+        h2
+        {
+            font-weight: 600;
+            font-size: 4em;
+            width: 100%;
+            padding-left: 30px;
+            padding-bottom: 5px;
+            transform: translateZ(60px);
+            color: #fff;
+        }
+
+        img
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: .5;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .back
+    {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background:linear-gradient(100deg, rgba(2, 2, 2, 0.432), rgb(0, 0, 0));
+
+        h2
+        {
+            transform: translateZ(-60px) rotateY(-180deg);
+            font-weight: 600;
+            font-size: 4em;
+            padding: 30px;
+            margin: 0;
+            color: $purple;
+        }
+
+        p
+        {
+            font-weight: 500;
+            font-size: 1.8em;
+            padding: 0 30px 30px;
+            margin-top: auto;
+            transform: translateZ(-50px) rotateY(-180deg);
+
+            @include textClamp(9);
+        }
+    }
+
+
+    &:hover .cards
+    {
+        box-shadow: -8px 8px 0px #FFC422;
+        transform: rotateY(180deg);
+    }
+
+    @include mq('desktop-small', max)
+    {
+        .front h2,
+        .back h2
+        {
+            font-size: 2.8em;
+        }
+
+        .back p
+        {
+            font-weight: 400;
+            font-size: 1.6em;
+        }
+    }
+}
+
+.clients-card
+{
+    h2
+    {
+        font-weight: 600;
+        font-size: 3.6em;
+    }
+
+    &_card
+    {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 80px;
+        margin-bottom: 15px;
+        background: #fff;
+        transition: all .4s ease;
+
+        img
+        {
+            max-width: 60%;
+            filter: grayscale(1);
+            transition: all .4s ease;
+        }
+
+        &:hover
+        {
+            box-shadow: 4px 4px 0px #FFC422;
+
+            img
+            {
+                filter: grayscale(0);
+            }
+        }
+
+        @include mq('tablet-mid', max)
+        {
+            box-shadow: 4px 4px 0px #FFC422;
+
+            img
+            {
+                filter: grayscale(0);
+            }
+        }
+    }
+
+    @include mq('tablet', max)
+    {
+        h2
+        {
+            text-align: center;
+            font-size: 3.2em;
+        }
+    }
+}
+
+.tariffs-card
+{
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    transition: all .4s cubic-bezier(.07,1.07,.33,1.15);
+
+    h3
+    {
+        font-weight: 600;
+        font-size: 3.2em;
+        margin-bottom: 10px;
+    }
+
+    h2
+    {
+        font-weight: 900;
+        font-size: 4.8em;
+        color: $purple;
+        margin-bottom: 0;
+    }
+
+    span
+    {
+        font-weight: 500;
+        font-size: 2.4em;
+        line-height: .8;
+    }
+
+    hr
+    {
+        background: #EEEDF5;
+        margin: 25px 0;
+    }
+    
+    ul
+    {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 25px;
+
+        li
+        {
+            font-weight: 500;
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+    }
+
+    a
+    {
+        width: 100%;
+        height: 55px;
+        opacity: 0;
+        transition: all .4s cubic-bezier(.07,1.07,.33,1.15);
+    }
+
+    &:not(:hover)
+    {
+        a
+        {
+            height: 1px;
+        }
+    }
+
+    &:hover
+    {
+        background: #fff;
+        box-shadow: 8px 8px 0px #FFC422;
+
+        a
+        {
+            opacity: 1;
+        }
+    }
+
+    @include mq('tablet', max)
+    {
+        padding: 15px;
+
+        h3
+        {
+            font-size: 2.8em;
+        }
+        
+        h2
+        {
+            font-size: 4.2em;
+        }
+        
+        span
+        {
+            font-size: 2.2em;
+        }
+    }
+    
+    @include mq('tablet-mid', max)
+    {
+        background: #fff;
+        box-shadow: 8px 8px 0px #FFC422;
+
+        a
+        {
+            opacity: 1;
+        }
+
+        &:not(:hover)
+        {
+            a
+            {
+                height: 55px;
+            }
+        }
+
+        h3,
+        h2,
+        span
+        {
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+.service-info-card
+{
+    font-weight: 500;
+    font-size: 2em;
+    display: inline-block;
+    padding: 20px;
+    box-shadow: 8px 8px 0px #FFC422;
+    background: #fff;
+}

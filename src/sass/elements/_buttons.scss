@@ -1,0 +1,35 @@
+.app-btn
+{
+    font-weight: 500;
+    font-size: 2.4em;
+    position: relative;
+    display: flex!important;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 70px;
+    padding: 20px;
+    border-radius: 2px;
+    border: 0;
+    outline: 0!important;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25)!important;
+    transition: transform .25s cubic-bezier(0.07, 1.07, 0.33, 1.15);
+    color: #fff!important;
+    background: $linear-warning;
+
+    &.icon
+    {
+        width: auto;
+    }
+
+    &:active
+    {
+        transform: scale(.7);
+    }
+
+    @include mq('tablet', max)
+    {
+        font-size: 2em;
+        height: 50px;
+    }
+}

@@ -1,0 +1,61 @@
+.ham
+{
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms cubic-bezier(0, 1.1, 0.75, 1.46);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 75px;
+    margin-left: auto;
+    z-index: 2;
+
+    &.active
+    {
+        transform: rotate(180deg);
+
+        &:active
+        {
+            transform: scale(.5);
+        }
+    }
+
+    &.active .line
+    {
+        stroke: #fff;
+    }
+
+    &.active .top
+    {
+        stroke-dashoffset: -98px;
+    }
+    &.active .bottom
+    {
+        stroke-dashoffset: -138px;
+    }
+
+    &:active
+    {
+        transform: scale(.5);
+    }
+}
+.hamRotate.active {
+    transform: rotate(45deg);
+}
+.hamRotate180.active {
+    transform: rotate(180deg);
+}
+.line {
+    fill:none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke: $dark;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+.ham .top {
+    stroke-dasharray: 40 139;
+}
+.ham .bottom {
+    stroke-dasharray: 40 180;
+}

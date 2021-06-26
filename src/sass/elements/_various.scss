@@ -1,0 +1,118 @@
+.sec-tle
+{
+    font-weight: 700;
+    font-size: 4.8em;
+    padding-top: 50px;
+    margin-bottom: 20px;
+
+    @include mq('tablet', max)
+    {
+        text-align: center;
+        font-size: 3.2em;
+        margin-bottom: 25px;
+    }
+}
+
+.app-social
+{
+    position: fixed;
+    bottom: 25px;
+    right: 40px;
+    z-index: 9;
+    transition: all .4s ease;
+
+    .social-ico
+    {
+        transition: all .3s ease;
+        fill: transparent;
+        stroke: $dark;
+        
+        &.active
+        {
+            stroke: #fff;
+        }
+    }
+    
+    a
+    {
+        margin-left: 20px;
+
+        &:hover .social-ico
+        {
+            stroke-width: 2px;
+            stroke: #fff;
+        }
+    }
+    
+    &.hide
+    {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    a:hover .telegram
+    {
+        fill: #0088cc;
+    }
+
+    a:hover .instagram
+    {
+        fill: #8a3ab9;
+    }
+
+    a:hover .facebook
+    {
+        fill: #4267B2;
+    }
+
+    @include mq('tablet', max)
+    {
+        display: flex;
+        flex-direction: column;
+        right: 15px;
+        bottom: 15px;
+        padding: 0 5px 10px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #d6d6d6;
+
+        .social-ico
+        {
+            stroke: $dark!important;
+        }
+
+        a
+        {
+            margin-left: 0;
+            margin-top: 10px;
+        }
+    }
+}
+
+.scroll-down
+{
+    pointer-events: none;
+    font-weight: 700;
+    font-size: 1.4em;
+    position: fixed;
+    left: 20px;
+    bottom: 100px;
+    transform: rotate(90deg);
+
+    &::after
+    {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 10px);
+        width: 100px;
+        height: 2px;
+        border-radius: 30px;
+        background: $dark;
+    }
+
+    @include mq('desktop-small', max)
+    {
+        display: none;
+    }
+}

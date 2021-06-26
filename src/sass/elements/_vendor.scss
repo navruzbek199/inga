@@ -1,0 +1,32 @@
+#fp-nav
+{
+    right: auto;
+    left: 40px!important;
+    z-index: 8;
+
+    ul li
+    {
+        margin: 19px 0;
+    }
+
+    ul li a span
+    {
+        width: 45px!important;
+        height: 2px!important;
+        border-radius: 0!important;
+        background: $dark;
+        margin: 0!important;
+        transition: all .3s cubic-bezier(0.24, 0.64, 0.53, 1.41);
+    }
+
+    ul li a.active span
+    {
+        width: 70px!important;
+        margin: 0;
+    }
+
+    ul li:hover a span
+    {
+        margin: 0;
+    }
+}

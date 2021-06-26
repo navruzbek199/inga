@@ -1,0 +1,137 @@
+header
+{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 0 40px;
+    padding-right: 20px;
+    z-index: 9;
+    transition: all .4s ease;
+
+    .app-navbar
+    {
+        position: absolute;
+        visibility: hidden;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        clip-path: circle(0% at calc(100% - 50px) 5%);
+        transition: all .5s cubic-bezier(0, 1.1, 0.75, 1.46);
+        background: radial-gradient(87.59% 145.29% at 87.59% 5.99%, #7A0EE0 0%, #4A0987 100%);
+
+        &_content
+        {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            background: url('../img/menu-bg.jpg') no-repeat;
+            background-size: 100%;
+            background-position: center bottom;
+
+            a.brand
+            {
+                position: absolute;
+                display: block;
+                top: 10px;
+                left: 40px;
+
+                @include mq('tablet', max)
+                {
+                    top: 17px;
+                    left: 15px;
+
+                    img
+                    {
+                        width: 140px;
+                    }
+                }
+            }
+
+            ul
+            {
+                position: relative;
+                margin: auto;
+                padding: 50px 15px 0;
+
+                li
+                {
+                    text-align: center;
+                    list-style: none;
+                    text-transform: uppercase;
+
+                    a
+                    {
+                        font-weight: 900;
+                        font-size: 5.6em;
+                        color: #fff;
+
+                        @include mq('desktop', max)
+                        {
+                            font-size: 5em;
+                        }
+                        
+                        @include mq('tablet', max)
+                        {
+                            font-weight: 700;
+                            font-size: 4.6em;
+                        }
+                        
+                        @include mq('phablet', max)
+                        {
+                            font-size: 3em;
+                        }
+                    }
+                }
+            }
+
+            .secured
+            {
+                font-weight: 500;
+                font-size: 1.4em;
+                margin: 0 auto 30px 30px;
+                color: #fff;
+
+                @include mq('tablet', max)
+                {
+                    font-size: 1.2em;
+                    margin-left: 15px;
+                }
+            }
+        }
+
+        &.active
+        {
+            visibility: visible;
+            clip-path: circle(200% at 94% 5%);
+            transition: all 1s ease;
+        }
+    }
+
+    @include mq('tablet', max)
+    {
+        padding: 0 0 0 15px;
+
+        .app-brand img
+        {
+            width: 140px;
+        }
+    }
+
+    @include mq('desktop-small', max) {
+        &.active
+        {
+            background: #fff;
+            box-shadow: 0 0 15px #d6d6d6;
+        }
+    }
+}
